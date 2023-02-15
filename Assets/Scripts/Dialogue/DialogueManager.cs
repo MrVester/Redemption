@@ -3,62 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour {
+public class DialogueManager : MonoBehaviour
+{
 
-	public Text nameText;
-	public Text dialogueText;
+    public Text nameText;
+    public Text dialogueText;
 
-	public Animator animator;
+    public Animator animator;
+    public GameObject DialogBox;
+    private Queue<string> sentences;
 
-	private Queue<string> sentences;
+    void Start()
+    {
+        sentences = new Queue<string>();
+    }
 
-	// Use this for initialization
-	void Start () {
-		sentences = new Queue<string>();
-	}
+    public void StartDialogue(Dialogue dialogue)
+    {
+        DialogBox.SetActive(true);
+        animator.SetBool("IsOpen", true);
 
-	public void StartDialogue (Dialogue dialogue)
-	{
-		animator.SetBool("IsOpen", true);
+        nameText.text = dialogue.name;
 
-		nameText.text = dialogue.name;
+        sentences.Clear();
 
-		sentences.Clear();
+        foreach (string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
 
-		foreach (string sentence in dialogue.sentences)
-		{
-			sentences.Enqueue(sentence);
-		}
+        DisplayNextSentence();
+    }
 
-		DisplayNextSentence();
-	}
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
 
-	public void DisplayNextSentence ()
-	{
-		if (sentences.Count == 0)
-		{
-			EndDialogue();
-			return;
-		}
+        string sentence = sentences.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
 
-		string sentence = sentences.Dequeue();
-		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
-	}
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
 
-	IEnumerator TypeSentence (string sentence)
-	{
-		dialogueText.text = "";
-		foreach (char letter in sentence.ToCharArray())
-		{
-			dialogueText.text += letter;
-			yield return null;
-		}
-	}
+    public void EndDialogue()
+    {
+        animator.SetBool("IsOpen", false);
+        StartCoroutine(HideDialogBox());
+    }
 
-	public void EndDialogue()
-	{
-		animator.SetBool("IsOpen", false);
-	}
+    IEnumerator HideDialogBox()
+    {
+        yield return new WaitForSeconds(0.5f);
+        DialogBox?.SetActive(false);
+
+        yield return null;
+
+    }
 
 }
