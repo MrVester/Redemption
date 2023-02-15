@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Floor
+  - Object
+  - Stone
+  - Torch
+  - Hand_F
+  - Bones
+  - Body
+  - Music
+  - volume_slider
+  - volume_text
+  - key
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Item
+  - Hatter
+  - Platform
+  - Character
+  - Object
+  - CamCollider
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: 
+    uniqueID: 3622497831
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Torch
+    uniqueID: 1948538083
+    locked: 0
+  - name: Hand_F
+    uniqueID: 3117517039
+    locked: 0
