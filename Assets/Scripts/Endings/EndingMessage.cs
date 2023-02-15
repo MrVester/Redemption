@@ -1,5 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-static class EndingMessage
+public class EndingMessage : MonoBehaviour
 {
-    public static string message { get; set; }
+    public string message;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            MessageBank.message = message;
+            SceneManager.LoadScene("Ending");
+        }
+    }
 }

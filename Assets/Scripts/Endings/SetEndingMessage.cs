@@ -8,6 +8,6 @@ public class SetEndingMessage : MonoBehaviour
     public Text message;
     private void Awake()
     {
-        message.text = EndingMessage.message;
+        message.text = MessageBank.message;
     }
 }
