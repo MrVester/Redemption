@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour {
+public class DialogueTrigger : MonoBehaviour
+{
 
-	private Dialogue dialogue;
-    private bool isInTrigger=false;
+    private Dialogue dialogue;
+    private bool isInTrigger = false;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour {
     }
     private void Update()
     {
-       if(Input.GetKey(KeyCode.E)&& isInTrigger)
+        if (Input.GetKeyDown(KeyCode.E) && isInTrigger)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
@@ -28,6 +29,6 @@ public class DialogueTrigger : MonoBehaviour {
         FindObjectOfType<DialogueManager>().EndDialogue();
         isInTrigger = false;
     }
-   
+
 
 }
