@@ -1,6 +1,10 @@
 # Redemption
 Platformer game with puzzles and quests
 
+Download Link:
+<a href="https://github.com/MrVester/Profetro/releases/tag/Profetro
+" download="FILENAME">Redemption</a>
+
 Follow the nametables hints and everything will be ok)
 
 Controlls:
