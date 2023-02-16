@@ -11,20 +11,21 @@ public class Inventory2 : MonoBehaviour
 
     private void Start()
     {
-        inventoryOn = false;
+        inventoryOn = true;
     }
 
     public void Chest()
     {
-        if(inventoryOn == false)
-        {
-            inventoryOn = true;
-            inventory.SetActive(true);
-        }
-        else if (inventoryOn == true)
+        if (inventoryOn)
         {
             inventoryOn = false;
             inventory.SetActive(false);
         }
+        else
+        {
+            inventoryOn = true;
+            inventory.SetActive(true);
+        }
+
     }
 }

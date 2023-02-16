@@ -5,26 +5,29 @@ using UnityEngine;
 public class Quests : MonoBehaviour
 {
     public int questNumber;
-    public int[] items;
+    private int[] items = { 0, 0, 0, 1 };
     public GameObject[] clouds;
     public GameObject barrier;
     public GameObject key;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Player" && other.gameObject.GetComponent<PickUp>().id == items[questNumber])
-        {
-            questNumber++;
-            Destroy(other.gameObject);
-            CheckQuest();
-        }
+        if (other.tag != "Player")
+            if (other.gameObject.GetComponent<PickUp>())
+                if (other.gameObject.GetComponent<PickUp>().id == items[questNumber])
+                {
+                    questNumber++;
+                    Destroy(other.gameObject);
+                    CheckQuest();
+                }
+
     }
 
     public void CheckQuest()
     {
         for (int i = 0; i < clouds.Length; i++)
         {
-            if(i == questNumber)
+            if (i == questNumber)
             {
                 clouds[i].SetActive(true);
                 clouds[i].GetComponent<Animator>().SetTrigger("isTriggered");
@@ -35,11 +38,11 @@ public class Quests : MonoBehaviour
                 clouds[i].SetActive(false);
             }
         }
-        if(questNumber == 3)
+        if (questNumber == 3)
         {
             barrier.SetActive(false);
         }
-        if(questNumber == 4)
+        if (questNumber == 4)
         {
             key.SetActive(true);
         }

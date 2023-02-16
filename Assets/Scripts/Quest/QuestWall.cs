@@ -13,11 +13,10 @@ public class QuestWall : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("key"))
+        if (other.CompareTag("key"))
         {
             Destroy(other.gameObject);
-            Debug.Log("ijijoejor");
-            anim.SetTrigger("kkey");
+            anim.SetTrigger("OpenWall");
         }
     }
 }

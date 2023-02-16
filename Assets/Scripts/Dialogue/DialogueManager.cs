@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator HideDialogBox()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         DialogBox?.SetActive(false);
 
         yield return null;

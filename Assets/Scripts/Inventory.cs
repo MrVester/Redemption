@@ -91,7 +91,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 StartCoroutine(PickingUpStoneCourutine());
-               
+
             }
         }
     }
@@ -100,7 +100,7 @@ public class Inventory : MonoBehaviour
         animator.Play("New_pickup");
         movement.IsCharacterCanWalk = false;
         yield return new WaitForSeconds(0.7f);
-       
+
         if (StoneColl)
         {
             Destroy(StoneColl.transform.root.gameObject);
@@ -113,7 +113,6 @@ public class Inventory : MonoBehaviour
 
         if (canPickUpTorch && !isTorchInHand)
         {
-            Debug.Log("InTorch");
             if (Input.GetKeyDown(KeyCode.E))
             {
                 torchRenderLayer = TorchColl.GetComponent<SpriteRenderer>();
