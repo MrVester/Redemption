@@ -2,8 +2,7 @@
 Platformer game with puzzles and quests
 
 Download Link:
-<a href="https://github.com/MrVester/Redemption/releases/tag/Redemption
-" download="FILENAME">Redemption</a>
+<a href="https://github.com/MrVester/Redemption/releases/tag/Redemption" download="FILENAME">Redemption</a>
 
 Follow the nametables hints and everything will be ok)
 
