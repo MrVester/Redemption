@@ -16,7 +16,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
+    public void LoadPuzzle()
+    {
+        SceneManager.LoadScene("Puzzle");
+    }
     public void ExitGame()
     {
         Application.Quit();

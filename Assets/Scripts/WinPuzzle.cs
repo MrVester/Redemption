@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class WinPuzzle : MonoBehaviour
 {
@@ -8,8 +10,6 @@ public class WinPuzzle : MonoBehaviour
     public static int myElement;
 
     public GameObject Puzzle;
-    public GameObject Panel;
-    public GameObject WinPanel;
 
     void Start()
     {
@@ -20,11 +20,14 @@ public class WinPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fullElement == myElement)
+        if (fullElement == myElement)
         {
-            Panel.SetActive(false);
-            WinPanel.SetActive(true);
+            Application.LoadLevel("Game");
         }
+    }
+    public void LoadMenu()
+    {
+        Application.LoadLevel("MainMenu");
     }
 
     public static void AddElement()
