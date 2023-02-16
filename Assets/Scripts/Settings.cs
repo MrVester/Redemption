@@ -15,14 +15,27 @@ public class Settings : MonoBehaviour
 
     void Start()
     {
-       
+
         audioSrc = GetComponent<AudioSource>();
-        slider.value = audioSrc.volume = PlayerPrefs.GetFloat("SaveVolume");
+        if (PlayerPrefs.HasKey("SaveVolume"))
+        {
+            slider.value = audioSrc.volume = PlayerPrefs.GetFloat("SaveVolume");
+        }
+
+        else
+        {
+            slider.value = audioSrc.volume = 0.2f;
+        }
+
     }
+
+
+
+
 
     void Update()
     {
- 
+
         soundValue.text = Mathf.Round(f: slider.value * 100) + "%";
     }
 
@@ -30,20 +43,20 @@ public class Settings : MonoBehaviour
     {
         audioSrc.volume = slider.value;
         PlayerPrefs.SetFloat("SaveVolume", slider.value);
-        if (slider.value>0 && !toggleVolume.isOn)
+        if (slider.value > 0 && !toggleVolume.isOn)
         {
             //PlayerPrefs.SetFloat("VolumeBuf", 0f);
             toggleVolume.isOn = true;
 
         }
-        
-        if (slider.value==0 && toggleVolume.isOn)
+
+        if (slider.value == 0 && toggleVolume.isOn)
         {
             toggleVolume.isOn = false;
         }
     }
     public void SetVolumeZero()
-    {  
+    {
         if (slider.value > 0 && !toggleVolume.isOn)
         {
             PlayerPrefs.SetFloat("VolumeBuf", slider.value);
@@ -51,9 +64,9 @@ public class Settings : MonoBehaviour
             audioSrc.volume = slider.value = 0f;
         }
 
-        if(slider.value == 0 && toggleVolume.isOn)
+        if (slider.value == 0 && toggleVolume.isOn)
         {
-            audioSrc.volume = slider.value = PlayerPrefs.GetFloat("VolumeBuf") ;
+            audioSrc.volume = slider.value = PlayerPrefs.GetFloat("VolumeBuf");
 
         }
     }
