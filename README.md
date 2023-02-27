@@ -14,7 +14,7 @@ Controlls:
 ***F*** - Throw a rock (unused mechanic, but you still can throw rocks and pick them)
 
 Issues:
-If you have some problems witch solving puzzle, press the "Back" button and try again.
+If you have some problems with solving puzzle, press the "Back" button and try again.
 
 ![image](https://user-images.githubusercontent.com/71410796/219418232-b9a24be7-0544-44be-84aa-ff6ed09dc968.png)
 ![image](https://user-images.githubusercontent.com/71410796/219418417-bb6af97e-011a-4f8b-93ac-e6fc8c4df677.png)
