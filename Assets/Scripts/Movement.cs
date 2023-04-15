@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public VariableJoystick variableJoystick;
+    public bool isJoystickControl = false;
     private LayerMask platformLayerMask;
     public Rigidbody2D rb;
     public Vector2 moveVector;
@@ -72,8 +74,10 @@ public class Movement : MonoBehaviour
 
     void Walk()
     {
-
-        moveVector.x = Input.GetAxis("Horizontal");
+        if (isJoystickControl)
+            moveVector.x = variableJoystick.Direction.x;
+        else
+            moveVector.x = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveVector.x) * Speed);
 
 
@@ -97,8 +101,7 @@ public class Movement : MonoBehaviour
     void Jump()
     {
 
-
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround())
+        if (((isJoystickControl && variableJoystick.Direction.y >= 0.5f) || (Input.GetKeyDown(KeyCode.Space) && !isJoystickControl)) && isOnGround())
         {
             animator.Play("New jump fast");
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
