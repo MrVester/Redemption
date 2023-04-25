@@ -84,14 +84,14 @@ public class Movement : MonoBehaviour
 
         rb.velocity = new Vector2(Speed * moveVector.x, rb.velocity.y);
 
-        if (Input.GetKey(KeyCode.LeftShift) && Switch == true && Mathf.Abs(rb.velocity.x) > 0 && isOnGroundLeft() == true)
+        if (Input.GetKey(KeyCode.LeftShift) && Switch && Mathf.Abs(rb.velocity.x) > 0 && isOnGroundLeft())
         {
 
             Speed = accSpeed;
             Switch = false;
         }
 
-        if (rb.velocity.x == 0 && Switch == false)
+        if (rb.velocity.x == 0 && !Switch)
         {
             Speed = 1f;
             Switch = true;
