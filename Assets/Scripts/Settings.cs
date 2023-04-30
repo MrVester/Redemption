@@ -15,7 +15,8 @@ public class Settings : MonoBehaviour
 
     void Start()
     {
-
+        toggleVolume.onValueChanged.AddListener((value) => SetVolumeZero());
+        slider.onValueChanged.AddListener((value) => SetVolume());
         audioSrc = GetComponent<AudioSource>();
         if (PlayerPrefs.HasKey("SaveVolume"))
         {
